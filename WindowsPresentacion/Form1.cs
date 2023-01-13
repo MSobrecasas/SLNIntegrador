@@ -21,12 +21,16 @@ namespace WindowsPresentacion
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dgwMedicos.DataSource = AdmMedico.Listar();
+            CargarDatos();
 
+        }
+
+        private void CargarDatos()
+        {
+            dgvMedicos.DataSource = AdmMedico.Listar();
+            dgvPacientes.DataSource = AdmPaciente.Listar();
             CargarMedicosClinicos();
-
             CargarHabitacion();
-
         }
 
         private void CargarMedicosClinicos()
@@ -34,9 +38,8 @@ namespace WindowsPresentacion
             List<Medico> list = AdmMedico.Listar("Clinico");
             foreach (Medico m in list)
             {
-                listBoxMedicos.Items.Add(m.Nombre +" "+ m.Apellido);
+                listBoxMedicos.Items.Add(m.Nombre + " " + m.Apellido);
             }
-
             lblCantidadMedicos.Text = "Cantidad de Medicos Clinicos: " + list.Count.ToString();
         }
 
@@ -45,8 +48,9 @@ namespace WindowsPresentacion
             List<Habitacion> list = AdmHabitacion.Listar();
             foreach (Habitacion h in list)
             {
-                listBoxHabitaciones.Items.Add("Habitacion N° "+h.Numero.ToString() +" "+ (h.Estado ? "Ocupado":"Libre"));
+                listBoxHabitaciones.Items.Add("Habitacion N° " + h.Numero.ToString() + " " + (h.Estado ? "Ocupado" : "Libre"));
             }
         }
+
     }
 }
