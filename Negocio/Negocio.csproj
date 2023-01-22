@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmClinica.cs" />
+    <Compile Include="AdmDirector.cs" />
+    <Compile Include="AdmEnfermero.cs" />
     <Compile Include="AdmHabitacion.cs" />
     <Compile Include="AdmMedico.cs" />
     <Compile Include="AdmPaciente.cs" />
